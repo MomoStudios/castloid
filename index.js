@@ -1,32 +1,16 @@
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
-const url = require('url')
-const config = JSON.parse(process.argv[3])
-
-if (config) config.backgroundColor = config.backgroundColor || '#000000'
-
-function createWindow() {
-	win = new BrowserWindow(config)
-	win.loadURL(url.format({
-		pathname: path.join(__dirname, 'index.html'),
-		protocol: 'file:',
-		slashes: true
-	}))
-	win.on('closed', function () {
-		win = null
-	})
+const config = {
+    type: Phaser.AUTO,
+    scene: {
+        create: create
+    }
 }
-
-app.on('ready', createWindow)
-
-app.on('window-all-closed', () => {
-	if (process.platform !== 'darwin') {
-		app.quit()
-	}
-})
-
-app.on('activate', () => {
-	if (win === null) {
-		createWindow()
-	}
-})
+//It's not necessary to set width, height and parent
+ 
+const game = new Phaser.Game(config)
+ 
+function create() {
+    var circle = new Phaser.Geom.Circle(400, 300, 100)
+ 
+    var graphics = this.add.graphics({ fillStyle: { color: 0xff0000 } })
+    graphics.fillCircleShape(circle)
+}

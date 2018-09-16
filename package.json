@@ -1,0 +1,22 @@
+{
+  "name": "castloid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "phaser": "run.js"
+  },
+  "repository": "https://github.com/MomoStudios/castloid.git",
+  "keywords": [
+    "Phaser",
+    "game",
+    "electron",
+    "desktop",
+    "play"
+  ],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "electron": "^2.0.5"
+  }
+}
